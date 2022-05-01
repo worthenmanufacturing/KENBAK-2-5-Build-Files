@@ -294,6 +294,7 @@ def save_file_as():
 def save_file(saveas=False):
     global memory
     global restart
+    global current_filepath
     
     # Initialize the instruction pointer to the default.
     memory[PC] = 4
