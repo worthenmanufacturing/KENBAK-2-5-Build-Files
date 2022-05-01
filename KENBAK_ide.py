@@ -703,7 +703,7 @@ def process_sub():
         memory[OCA+register] |= OVERFLOW
      
     # Perform the subtraction.
-    memory[register] = ((memory[register] - operand) + 256) & 0b11111111;
+    memory[register] = ((memory[register] - operand) + 256) & 0b11111111
     
     # Advance to next instruction.
     memory[PC] += 2
@@ -1073,13 +1073,13 @@ def process_full_address_opcodes(opCode, operands, programCounter, labels):
         
         # Add the appropriate address bits to the op value.
         addressMode, label = process_address(address, labels)
-        offset = 0;
+        offset = 0
         if "+" in label:
             parts = label.split("+")
             label = parts[0]
             offset = process_constant(parts[1], labels)
             if (offset < 0):
-                offset = 0;
+                offset = 0
         if addressMode >= 0:
             opValue = opValue | addressMode
             if addressMode == 3:
@@ -1158,13 +1158,13 @@ def process_jump_opcodes(opCode, operands, programCounter, labels):
         
         # Add the appropriate address bits to the op value.
         addressMode, label = process_address(address, labels)
-        offset = 0;
+        offset = 0
         if "+" in label:
             parts = label.split("+")
             label = parts[0]
             offset = process_constant(parts[1], labels)
             if (offset < 0):
-                offset = 0;
+                offset = 0
         if addressMode >= 0:
             # Only memory and indirect addressing modes are valid.
             if addressMode == 4 or addressMode == 5:
@@ -1223,13 +1223,13 @@ def process_skip_and_set_opcodes(opCode, operands, programCounter, labels):
           
         # Add the appropriate address bits to the op value.
         addressMode, label = process_address(address, labels)
-        offset = 0;
+        offset = 0
         if "+" in label:
             parts = label.split("+")
             label = parts[0]
             offset = process_constant(parts[1], labels)
             if (offset < 0):
-                offset = 0;
+                offset = 0
         
         # Only memory addressing mode is valid.
         if addressMode == 4:
@@ -1452,7 +1452,7 @@ class TextAssembly(tk.Canvas):
                         breakPoints.remove(address)
                     else:
                         breakPoints.append(address)
-                break;
+                break
 
 
 
@@ -1637,7 +1637,7 @@ class Console:
         y = event.y
         
         # See if one of the buttons was clicked.
-        buttonPos = 0;
+        buttonPos = 0
         for bx in button_x:
             # Figure out the distance between the button position and the click.
             distance = abs(int(math.sqrt( ((x-bx)**2)+((y-BUTTON_Y)**2))))

@@ -140,13 +140,13 @@ def process_full_address_opcodes(opCode, operands, programCounter, labels):
         
         # Add the appropriate address bits to the op value.
         addressMode, label = process_address(address)
-        offset = 0;
+        offset = 0
         if "+" in label:
             parts = label.split("+")
             label = parts[0]
             offset = process_constant(parts[1])
             if (offset < 0):
-                offset = 0;
+                offset = 0
         if addressMode >= 0:
             opValue = opValue | addressMode
             if addressMode == 3:
@@ -224,13 +224,13 @@ def process_jump_opcodes(opCode, operands, programCounter, labels):
         
         # Add the appropriate address bits to the op value.
         addressMode, label = process_address(address)
-        offset = 0;
+        offset = 0
         if "+" in label:
             parts = label.split("+")
             label = parts[0]
             offset = process_constant(parts[1])
             if (offset < 0):
-                offset = 0;
+                offset = 0
         if addressMode >= 0:
             # Only memory and indirect addressing modes are valid.
             if addressMode == 4 or addressMode == 5:
@@ -288,13 +288,13 @@ def process_skip_and_set_opcodes(opCode, operands, programCounter, labels):
           
         # Add the appropriate address bits to the op value.
         addressMode, label = process_address(address)
-        offset = 0;
+        offset = 0
         if "+" in label:
             parts = label.split("+")
             label = parts[0]
             offset = process_constant(parts[1])
             if (offset < 0):
-                offset = 0;
+                offset = 0
         
         # Only memory addressing mode is valid.
         if addressMode == 4:
