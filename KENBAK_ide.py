@@ -1431,10 +1431,11 @@ def assemble_code(code, programCounter):
 # Create the left hand assembled code panel.
 class TextAssembly(tk.Canvas):
     
-    def __init__(self, textwidget, *args, **kwargs):
+    def __init__(self, textwidget, breakPoints, *args, **kwargs):
         tk.Canvas.__init__(self, *args, **kwargs)
         self.codeLines = {}
         self.textwidget = textwidget
+        self.breakPoints = breakPoints # Not necessary since it's global but maybe there's a future update in the works
         self.configure(width=16, state="disabled", background="light grey")
         self.bind('<Button-1>', self.toggleBreakPoint)
         self.redraw()
