@@ -753,7 +753,7 @@ def process_jmk():
     if check_for_jump():
         # Save the address of the next instruction at the destination address.
         memory[address] = memory[PC] + 2
-        memory[PC] = address + 1
+        memory[PC] = (address + 1) & 0b11111111
     else:
         # Just advance to next instruction.
         memory[PC] += 2
